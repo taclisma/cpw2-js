@@ -13,7 +13,11 @@ function invert(people){
     // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
     // nomes dos usuários.
 
-    return [];
+    people.reverse();
+
+
+    
+    return people;
 }
 
 /**
@@ -29,7 +33,17 @@ function mean(grades){
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
 
-    return 0;
+    // variaveis
+        let sum = 0;
+        let average = 0;
+    
+    // loop    
+        for(let i = 0; i < grades.length; i++){
+            sum += grades[i];
+        }
+        average = sum / (grades.length);
+
+    return average;
 }
 
 /**
@@ -44,8 +58,8 @@ function isApproved(mean){
     // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
-
-    return "";
+    if(mean < 7) return "reprovado";
+    else return "aprovado";
 }
 
 /**
@@ -61,8 +75,23 @@ function wide(strDate){
     // por exemplo, de "03/03/2022" para "03 de março de 2022". Dica: use a função
     // “split” de uma string que quebra a string em pedaços dado um separador como argumento da função.
     // Nesse caso, o separador é a barra (/) da data.
+    
+    //vetor com meses
+    let mes = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
 
-    return "";
+    // separa string pela /
+    let date = strDate.split("/")
+    
+    if(date.length != 3){
+        return "";
+    } else {
+
+        // transforma mes em numero
+        date[1] = parseInt(date[1], 10)
+        
+        // usa data[1] (mes) como indice do vetor mes[]
+        return `${date[0]} de ${mes[date[1]-1]} de ${date[2]}`;
+    }
 }
 
 // Trecho utilizado pelos testes
